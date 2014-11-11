@@ -6,18 +6,9 @@
 #SERIAL_NUMBER=$(hexdump -e '8/1 "%c"' /sys/bus/i2c/devices/0-0050/eeprom -s 14 -n 2)-$(hexdump -e '8/1 "%c"' /sys/bus/i2c/devices/0-0050/eeprom -s 16 -n 12)
 #ISBLACK=$(hexdump -e '8/1 "%c"' /sys/bus/i2c/devices/0-0050/eeprom -s 8 -n 4)
 
-BLACK=""
-
-#if [ "${ISBLACK}" = "BBBK" ] ; then
-#	BLACK="Black"
-#fi
-
-#if [ "${ISBLACK}" = "BNLT" ] ; then
-#	BLACK="Black"
-#fi
-
 SERIAL_NUMBER="12345678"
-BLACK="Botbone"
+PRODUCT="BotBone"
+MANUFACTURER="Leadtek"
 
 mac_address="/proc/device-tree/ocp/ethernet@4a100000/slave@4a100200/mac-address"
 if [ -f ${mac_address} ] ; then
@@ -31,7 +22,7 @@ if [ -f ${mac_address} ] ; then
 	echo "cpsw.1: ${cpsw_1_mac}"
 fi
 
-modprobe g_multi file=/dev/mmcblk0p1 cdrom=0 stall=0 removable=1 nofua=1 iSerialNumber=${SERIAL_NUMBER} iManufacturer=Circuitco  iProduct=${BLACK} host_addr=${cpsw_1_mac}
+modprobe g_multi file=/dev/mmcblk0p1 cdrom=0 stall=0 removable=1 nofua=1 iSerialNumber=${SERIAL_NUMBER} iManufacturer=${MANUFACTURER}  iProduct=${PRODUCT} host_addr=${cpsw_1_mac}
 
 sleep 1
 
