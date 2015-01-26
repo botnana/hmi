@@ -14,5 +14,8 @@
     "Botbone"
   ],
   "author": "Cheng-Chang Wu",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.11.1"
+  }
 }
