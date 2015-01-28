@@ -21,6 +21,7 @@
     "express": "^4.11.1",
     "flux-router-component": "^0.5.7",
     "fluxible": "^0.1.5",
+    "fluxible-plugin-routr": "^0.3.0",
     "node-jsx": "^0.12.4",
     "purecss": "^0.5.0",
     "react": "^0.12.2",
