@@ -17,6 +17,7 @@
   "author": "Cheng-Chang Wu <ccwu660601@mapacode.tw>",
   "license": "ISC",
   "dependencies": {
+    "d3": "^3.5.3",
     "debug": "^2.1.1",
     "express": "^4.11.1",
     "flux-router-component": "^0.5.7",
@@ -29,8 +30,13 @@
   },
   "devDependencies": {
     "css-loader": "^0.9.1",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-webpack": "^1.0.8",
     "jsx-loader": "^0.12.2",
     "style-loader": "^0.8.3",
-    "webpack": "^1.5.3"
+    "webpack": "^1.5.3",
+    "webpack-dev-server": "^1.7.0"
   }
 }

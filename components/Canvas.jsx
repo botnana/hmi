@@ -4,16 +4,17 @@
  */
 'use strict';
 var React = require('react');
-var Canvas = require('./Canvas.jsx');
-var Application = React.createClass({
+
+var Canvas = React.createClass({
+    componentDidMount: function () {
+        var n = this.getDOMNode();
+        d3.select(n).append('svg');
+    },
     render: function() {
         return (
-            <div>
-                <h1>Botnana HMI</h1>
-                <Canvas />
-            </div>
+            <div id="canvas"></div>
         );
     }
 });
 
-module.exports = Application;
+module.exports = Canvas;
