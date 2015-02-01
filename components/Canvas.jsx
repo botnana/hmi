@@ -21,75 +21,71 @@ var Canvas = React.createClass({
             'width': '224', 'height': '255'
         });
 
-        var render_digital_pin = function(item, config) {
+        var render_digital_pin = function(item, size, anchored) {
             var g = svg.append('g').attr('id', item[0]['tag']).classed(item[0]['class'], true);
             g
             .append('rect').classed('pin', true).attr({
-                'width': config['rect-width'], 'height': config['rect-height'],
+                'width': size['rect-width'], 'height': size['rect-height'],
                 'transform':'translate('+item[1]+','+item[2]+')'
             });
             g
             .append('text').attr({
-                'text-anchor': config['text-anchor'],
-                'font-size':config['font-size'],
-                'transform':'translate('+(item[1]+config['text-dxy'][0])+','+(item[2]+config['text-dxy'][1])+')'
+                'text-anchor': anchored['text-anchor'],
+                'font-size':size['font-size'],
+                'transform':'translate('+(item[1]+anchored['text-dx'])+','+(item[2]+size['rect-height'])+')'
             })
             .append('tspan').text(item[0]['signal']);
         };
 
-        var render_analog_pin = function(item, config) {
+        var render_analog_pin = function(item, size, anchored) {
             var g = svg.append('g').attr('id', item[0]['tag']).classed(item[0]['class'], true);
             g
             .append('rect').classed('pin', true).attr({
-                'width': config['rect-width'], 'height': config['rect-height'],
+                'width': size['rect-width'], 'height': size['rect-height'],
                 'transform':'translate('+item[1]+','+item[2]+')'
             });
             g
             .append('rect').classed('background', true).attr({
-                'width': config['rect-width']*10, 'height': config['rect-height'],
+                'width': size['rect-width']*10, 'height': size['rect-height'],
                 'transform':'translate('
-                    + (item[1]+config['text-dxy'][0]-(config['text-anchor']==='end' ? config['rect-width']*10 : 0))
-                    +','+(item[2]+config['text-dxy'][1]-config['rect-height'])+')'
+                    + (item[1]+anchored['text-dx']-(anchored['text-anchor']==='end' ? size['rect-width']*10 : 0))
+                    +','+item[2]+')'
             });
             g
             .append('text').attr({
-                'text-anchor': config['text-anchor'],
-                'font-size':config['font-size'],
-                'transform':'translate('+(item[1]+config['text-dxy'][0])+','+(item[2]+config['text-dxy'][1])+')'
+                'text-anchor': anchored['text-anchor'],
+                'font-size':size['font-size'],
+                'transform':'translate('+(item[1]+anchored['text-dx'])+','+(item[2]+size['rect-height'])+')'
             })
             .append('tspan').text(item[0]['signal']);
             g
             .append('rect').classed('bar', true).attr({
-                'width': config['rect-width']*5, 'height': config['rect-height'],
+                'width': size['rect-width']*5, 'height': size['rect-height'],
                 'transform':'translate('
-                    +(item[1]+config['text-dxy'][0]-(config['text-anchor']==='end' ? config['rect-width']*5 : 0))
-                    +','+(item[2]+config['text-dxy'][1]-config['rect-height'])+')'
+                    +(item[1]+anchored['text-dx']-(anchored['text-anchor']==='end' ? size['rect-width']*5 : 0))
+                    +','+item[2]+')'
             });
         };
 
-        var small_anchored_list_start = {
+        var anchored_start = {
             'text-anchor': 'start',
+            'text-dx': 4.75,
+        };
+        
+        var anchored_end = {
+            'text-anchor': 'end',
+            'text-dx': 1.25,
+        };
+
+        var small = {
             'font-size': '4px',
             'rect-width': 2.75,
             'rect-height': 1.8,
-            'text-dxy': [4.75, 1.8],
-            'bar-dxy': [0, 0]
         };
-        var large_anchored_list_start = {
-            'text-anchor': 'start',
+        var large = {
             'font-size': '6px',
             'rect-width': 3.75,
             'rect-height': 3.8,
-            'text-dxy': [4.75, 3.8],
-            'bar-dxy': [0, 0]
-        };
-        var large_anchored_list_end = {
-            'text-anchor': 'end',
-            'font-size': '6px',
-            'rect-width': 3.75,
-            'rect-height': 3.8,
-            'text-dxy': [1.25, 3.8],
-            'bar-dxy': [0, 0]
         };
 
         // LEDs
@@ -102,7 +98,7 @@ var Canvas = React.createClass({
         .map(function(x, i) {
             return [x, 173.875, 183-i*3.75];
         })
-        .forEach(function(x) { render_digital_pin (x, small_anchored_list_start); });
+        .forEach(function(x) { render_digital_pin (x, small, anchored_start); });
 
         // Digital pins
         [
@@ -119,7 +115,7 @@ var Canvas = React.createClass({
         ]
         .map(function(x, i) {
             return [x, 133-i*0.075, 85+i*6.55];
-        }).forEach(function (x) { render_digital_pin (x, large_anchored_list_start); });
+        }).forEach(function (x) { render_digital_pin (x, large, anchored_start); });
 
         [
             {signal: '24V',         tag: 'j15.1', class: 'power'},
@@ -134,7 +130,7 @@ var Canvas = React.createClass({
         ]
         .map (function(x, i) {
             return [x, 126.5-i*0.075, 85+i*6.55];
-        }).forEach(function (x) { render_digital_pin (x, large_anchored_list_end); });
+        }).forEach(function (x) { render_digital_pin (x, large, anchored_end); });
 
         [
             {signal: 'SYS_5V',      tag: 'j14.2', class: 'power'},
@@ -159,7 +155,7 @@ var Canvas = React.createClass({
             {signal: 'SPI0_SCLK',   tag: 'j14.40', class: 'digital'}
         ].map(function(x, i) {
             return [x, 45.875-i*0.070, 84.5+i*6.57];
-        }).forEach(function (x) { render_digital_pin (x, large_anchored_list_start); });
+        }).forEach(function (x) { render_digital_pin (x, large, anchored_start); });
 
         [
             {signal: 'VDD_3V3B',    tag: 'j14.1', class: 'power'},
@@ -184,7 +180,7 @@ var Canvas = React.createClass({
             {signal: 'DGND',        tag: 'j14.39', class: 'power'}
         ].map(function(x, i) {
             return [x, 40-i*0.070, 84.5+i*6.57];
-        }).forEach(function (x) { render_digital_pin (x, large_anchored_list_end); });
+        }).forEach(function (x) { render_digital_pin (x, large, anchored_end); });
 
         // Analog inputs
         [
@@ -194,7 +190,7 @@ var Canvas = React.createClass({
         ]
         .map (function (x, i) {
             return [x, 132.375-i*0.075, 151+i*6.55];
-        }).forEach(function (x) { render_analog_pin (x, large_anchored_list_start); });
+        }).forEach(function (x) { render_analog_pin (x, large, anchored_start); });
         [
             {signal: 'AIN0', tag: 'j15.19', class: 'analog'},
             {signal: 'AIN1', tag: 'j15.21', class: 'analog'},
@@ -203,7 +199,7 @@ var Canvas = React.createClass({
         ]
         .map (function (x, i) {
             return [x, 126-i*0.075, 144.25+i*6.55];
-        }).forEach(function (x) { render_analog_pin (x, large_anchored_list_end); });
+        }).forEach(function (x) { render_analog_pin (x, large, anchored_end); });
     },
     render: function() {
         return (
