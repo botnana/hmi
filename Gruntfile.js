@@ -4,7 +4,8 @@ module.exports = function (grunt) {
             main: {
                files: [
                    {expand: true, cwd: "node_modules/d3/", src: "d3.min.js", dest: "build/js/"},
-                   {expand: true, cwd: "assets/img", src: "*.*", dest: "build/img"}
+                   {expand: true, cwd: "assets/img", src: "*.*", dest: "build/img"},
+                   {expand: true, cwd: "assets/", src: "*.*", dest: "build/"}
                ] 
             }
         }

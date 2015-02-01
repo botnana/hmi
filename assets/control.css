@@ -1,0 +1,49 @@
+.reactive-background {
+    fill:#000000;
+    fill-opacity: 0.25;
+}
+
+.power rect {
+    fill: #ffffff;
+    fill-opacity: 1;
+}
+
+.power text {
+    fill: #ffffff;
+    fill-opacity: 1;
+    font-family:Bitstream Vera Sans;
+}
+
+.digital text {
+    fill: #ffffff;
+    fill-opacity: 1;
+    font-family:Bitstream Vera Sans;
+}
+
+.digital rect.pin {
+    fill: #ffffff;
+    fill-opacity: 1;
+}
+
+.analog text {
+    fill: #ffffff;
+    fill-opacity: 1;
+    font-family:Bitstream Vera Sans;
+}
+
+.analog rect.pin {
+    fill: #ffffff;
+    fill-opacity: 1;
+}
+
+.analog rect.background {
+    fill:#000000;
+    fill-opacity: 0.2;
+}
+
+.analog rect.bar {
+    fill:#00ff00;
+    fill-opacity: 0.5;
+}
+
+
