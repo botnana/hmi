@@ -1,6 +1,12 @@
 .reactive-background {
     fill:#000000;
-    fill-opacity: 0.25;
+    fill-opacity: 0.35;
+}
+
+text {
+    fill: #FFFF00;
+    fill-opacity: 1;
+    font-family:Bitstream Vera Sans;
 }
 
 .power rect {

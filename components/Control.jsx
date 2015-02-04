@@ -21,6 +21,15 @@ var Control = React.createClass({
             'width': '224', 'height': '255'
         });
 
+        // Labels for 3.95 connector, micro USB, USB, micro SD and micro HDMI
+        svg.append('text').attr({'font-size': '8px', 'x': '190', 'y': '50'}).text('μHDMI');
+        svg.append('text').attr({'font-size': '8px', 'x': '190', 'y': '110'}).text('μSD');
+        svg.append('text').attr({'font-size': '8px', 'x': '190', 'y': '152'}).text('USB');
+        svg.append('text').attr({'font-size': '8px', 'x': '190', 'y': '176'}).text('LEDs');
+        svg.append('text').attr({'font-size': '8px', 'x': '190', 'y': '184'}).text('μUSB');
+        svg.append('text').attr({'font-size': '8px', 'x': '186', 'y': '210'}).text('3.96 接口');
+        
+        // Render digital/analog pins
         var render_digital_pin = function(item, size, anchored) {
             var g = svg.append('g').attr('id', item[0]['tag']).classed(item[0]['class'], true);
             g
@@ -201,7 +210,8 @@ var Control = React.createClass({
         .map (function (x, i) {
             return [x, 126-i*0.075, 144.25+i*6.55];
         }).forEach(function (x) { render_analog_pin (x, large, anchored_end); });
-        
+
+            // Test I/O
         svg.select('#usr2').classed('off', true);
         svg.select('#j15_16').classed('off', true);
         svg.select('#j14_33').classed('off', true);
