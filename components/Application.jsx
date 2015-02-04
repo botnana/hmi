@@ -4,13 +4,18 @@
  */
 'use strict';
 var React = require('react');
+var Start = require('./Start.jsx');
 var Control = require('./Control.jsx');
 var Application = React.createClass({
     render: function() {
         return (
-            <div>
-                <h1>Botnana HMI</h1>
-                <Control />
+            <div className="pure-g">
+                <div  className="pure-u-1-3">
+                    <Control />
+                </div>
+                <div className="pure-u-2-3">
+                    <Start />
+                </div>
             </div>
         );
     }
