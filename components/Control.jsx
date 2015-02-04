@@ -5,7 +5,7 @@
 'use strict';
 var React = require('react');
 
-var Canvas = React.createClass({
+var Control = React.createClass({
     componentDidMount: function () {
         var svg = d3.select(this.getDOMNode());
 // 相片的大小於 (1552,2104), SVG 設為其 1/8。
@@ -222,4 +222,4 @@ var Canvas = React.createClass({
     }
 });
 
-module.exports = Canvas;
+module.exports = Control;

@@ -4,13 +4,13 @@
  */
 'use strict';
 var React = require('react');
-var Canvas = require('./Canvas.jsx');
+var Control = require('./Control.jsx');
 var Application = React.createClass({
     render: function() {
         return (
             <div>
                 <h1>Botnana HMI</h1>
-                <Canvas />
+                <Control />
             </div>
         );
     }
