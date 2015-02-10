@@ -118,8 +118,8 @@ var Control = React.createClass({
             {signal: 'DGND',        tag: 'j15_20', class: 'power'}
         ]
         .map(function(x, i) {
-            return [x, 265.5-i*0.075, 165+i*13.65];
-        }).forEach(function (x) { render_digital_pin (x, large, anchored_start); });
+            return [x, 250.5+i*0.075, 330-i*13.65];
+        }).forEach(function (x) { render_digital_pin (x, large, anchored_end); });
 
         [
             {signal: '24V',         tag: 'j15_1', class: 'power'},
@@ -133,8 +133,8 @@ var Control = React.createClass({
             {signal: 'DGND',        tag: 'j15_17', class: 'power'}
         ]
         .map (function(x, i) {
-            return [x, 251.5-i*0.075, 165+i*13.65];
-        }).forEach(function (x) { render_digital_pin (x, large, anchored_end); });
+            return [x, 264.5+i*0.075, 330-i*13.65];
+        }).forEach(function (x) { render_digital_pin (x, large, anchored_start); });
 
         [
             {signal: 'SYS_5V',      tag: 'j14_2', class: 'power'},
@@ -158,8 +158,8 @@ var Control = React.createClass({
             {signal: 'SPI0_D1',     tag: 'j14_38', class: 'digital'},
             {signal: 'SPI0_SCLK',   tag: 'j14_40', class: 'digital'}
         ].map(function(x, i) {
-            return [x, 90.875-i*0.070, 163.5+i*13.65];
-        }).forEach(function (x) { render_digital_pin (x, large, anchored_start); });
+            return [x, 75.875+i*0.070, 417.5-i*13.25];
+        }).forEach(function (x) { render_digital_pin (x, large, anchored_end); });
 
         [
             {signal: 'VDD_3V3B',    tag: 'j14_1', class: 'power'},
@@ -183,8 +183,8 @@ var Control = React.createClass({
             {signal: 'GPIO3_21',    tag: 'j14_37', class: 'digital'},
             {signal: 'DGND',        tag: 'j14_39', class: 'power'}
         ].map(function(x, i) {
-            return [x, 78-i*0.070, 163.5+i*13.65];
-        }).forEach(function (x) { render_digital_pin (x, large, anchored_end); });
+            return [x, 90+i*0.070, 417.5-i*13.25];
+        }).forEach(function (x) { render_digital_pin (x, large, anchored_start); });
 
         // Analog inputs
         [
@@ -193,8 +193,8 @@ var Control = React.createClass({
             {signal: 'AIN6', tag: 'j15_26', class: 'analog'}
         ]
         .map (function (x, i) {
-            return [x, 264.6-i*0.075, 301+i*13.65];
-        }).forEach(function (x) { render_analog_pin (x, large, anchored_start); });
+            return [x, 250.6+i*0.075, 193-i*13.65];
+        }).forEach(function (x) { render_analog_pin (x, large, anchored_end); });
         [
             {signal: 'AIN0', tag: 'j15_19', class: 'analog'},
             {signal: 'AIN1', tag: 'j15_21', class: 'analog'},
@@ -202,8 +202,8 @@ var Control = React.createClass({
             {signal: 'AIN3', tag: 'j15_25', class: 'analog'}
         ]
         .map (function (x, i) {
-            return [x, 250.6-i*0.075, 287.25+i*13.65];
-        }).forEach(function (x) { render_analog_pin (x, large, anchored_end); });
+            return [x, 265.0+i*0.075, 206.25-i*13.65];
+        }).forEach(function (x) { render_analog_pin (x, large, anchored_start); });
 
             // Test I/O
         svg.select('#usr2').classed('off', true);
