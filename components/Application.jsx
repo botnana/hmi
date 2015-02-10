@@ -10,10 +10,10 @@ var Application = React.createClass({
     render: function() {
         return (
             <div className="pure-g">
-                <div  className="pure-u-1-3">
+                <div  className="pure-u-1-2">
                     <Control />
                 </div>
-                <div className="pure-u-2-3">
+                <div className="pure-u-1-2">
                     <Start />
                 </div>
             </div>

@@ -8,26 +8,26 @@ var React = require('react');
 var Control = React.createClass({
     componentDidMount: function () {
         var svg = d3.select(this.getDOMNode());
-// 相片的大小於 (1552,2104), SVG 設為其 1/8。
+// 相片的大小於 (1792,2040), SVG 設為其 1/4。
         svg
-        .attr('width', '224').attr('height', '255')
+        .attr('width', '448').attr('height', '510')
         .append('image').attr('xlink:href', '/public/img/botbone.png')
         .attr('y', '0').attr('x', '0')
-        .attr('width', '224').attr('height', '255');
+        .attr('width', '448').attr('height', '510');
 
         // Dark background under reactive components.
         svg
         .append('rect').classed('reactive-background', true).attr({
-            'width': '224', 'height': '255'
+            'width': '448', 'height': '510'
         });
 
         // Labels for 3.95 connector, micro USB, USB, micro SD and micro HDMI
-        svg.append('text').attr({'font-size': '8px', 'x': '190', 'y': '50'}).text('μHDMI');
-        svg.append('text').attr({'font-size': '8px', 'x': '190', 'y': '110'}).text('μSD');
-        svg.append('text').attr({'font-size': '8px', 'x': '190', 'y': '152'}).text('USB');
-        svg.append('text').attr({'font-size': '8px', 'x': '190', 'y': '176'}).text('LEDs');
-        svg.append('text').attr({'font-size': '8px', 'x': '190', 'y': '184'}).text('μUSB');
-        svg.append('text').attr({'font-size': '8px', 'x': '186', 'y': '210'}).text('3.96 接口');
+        svg.append('text').attr({'x': '390', 'y': '100'}).text('μHDMI');
+        svg.append('text').attr({'x': '390', 'y': '220'}).text('μSD');
+        svg.append('text').attr({'x': '390', 'y': '302'}).text('USB');
+        svg.append('text').attr({'x': '390', 'y': '348'}).text('LEDs');
+        svg.append('text').attr({'x': '390', 'y': '368'}).text('μUSB');
+        svg.append('text').attr({'x': '386', 'y': '410'}).text('3.96 接口');
         
         // Render digital/analog pins
         var render_digital_pin = function(item, size, anchored) {
@@ -40,10 +40,8 @@ var Control = React.createClass({
             g
             .append('text').attr({
                 'text-anchor': anchored['text-anchor'],
-                'font-size':size['font-size'],
                 'transform':'translate('+(item[1]+anchored['text-dx'])+','+(item[2]+size['rect-height'])+')'
-            })
-            .append('tspan').text(item[0]['signal']);
+            }).text(item[0]['signal']);
         };
 
         var render_analog_pin = function(item, size, anchored) {
@@ -55,30 +53,28 @@ var Control = React.createClass({
             });
             g
             .append('rect').classed('background', true).attr({
-                'width': 20, 'height': size['rect-height'],
+                'width': 40, 'height': size['rect-height'],
                 'transform':'translate('
-                    + (item[1]+anchored['text-dx']-(anchored['text-anchor']==='end' ? 20 : 0))
+                    + (item[1]+anchored['text-dx']-(anchored['text-anchor']==='end' ? 40 : 0))
                     +','+item[2]+')'
             });
             g
             .append('text').attr({
                 'text-anchor': anchored['text-anchor'],
-                'font-size':size['font-size'],
                 'transform':'translate('+(item[1]+anchored['text-dx'])+','+(item[2]+size['rect-height'])+')'
-            })
-            .append('tspan').text(item[0]['signal']);
+            }).text(item[0]['signal']);
             g
             .append('rect').classed('bar', true).attr({
-                'width': 10, 'height': size['rect-height'],
+                'width': 20, 'height': size['rect-height'],
                 'transform':'translate('
-                    +(item[1]+anchored['text-dx']-(anchored['text-anchor']==='end' ? 20 : 0))
+                    +(item[1]+anchored['text-dx']-(anchored['text-anchor']==='end' ? 40 : 0))
                     +','+item[2]+')'
             });
         };
 
         var anchored_start = {
             'text-anchor': 'start',
-            'text-dx': 4.75,
+            'text-dx': 11.75,
         };
         
         var anchored_end = {
@@ -87,15 +83,13 @@ var Control = React.createClass({
         };
 
         var small = {
-            'font-size': '4px',
-            'rect-width': 2.75,
-            'rect-height': 1.8,
+            'rect-width': 5.75,
+            'rect-height': 3.8,
         };
 
         var large = {
-            'font-size': '6px',
-            'rect-width': 3.75,
-            'rect-height': 3.8,
+            'rect-width': 8.75,
+            'rect-height': 8.75,
         };
 
         // LEDs
@@ -106,9 +100,9 @@ var Control = React.createClass({
             {signal: 'USR3', tag: 'usr3', class: 'digital'}
         ]
         .map(function(x, i) {
-            return [x, 173.875, 183-i*3.75];
+            return [x, 346.875, 368-i*8.50];
         })
-        .forEach(function(x) { render_digital_pin (x, small, anchored_start); });
+        .forEach(function(x) { render_digital_pin (x, small, anchored_end); });
 
         // Digital pins
         [
@@ -124,7 +118,7 @@ var Control = React.createClass({
             {signal: 'DGND',        tag: 'j15_20', class: 'power'}
         ]
         .map(function(x, i) {
-            return [x, 133-i*0.075, 85+i*6.55];
+            return [x, 265.5-i*0.075, 165+i*13.65];
         }).forEach(function (x) { render_digital_pin (x, large, anchored_start); });
 
         [
@@ -139,7 +133,7 @@ var Control = React.createClass({
             {signal: 'DGND',        tag: 'j15_17', class: 'power'}
         ]
         .map (function(x, i) {
-            return [x, 126.5-i*0.075, 85+i*6.55];
+            return [x, 251.5-i*0.075, 165+i*13.65];
         }).forEach(function (x) { render_digital_pin (x, large, anchored_end); });
 
         [
@@ -164,7 +158,7 @@ var Control = React.createClass({
             {signal: 'SPI0_D1',     tag: 'j14_38', class: 'digital'},
             {signal: 'SPI0_SCLK',   tag: 'j14_40', class: 'digital'}
         ].map(function(x, i) {
-            return [x, 45.875-i*0.070, 84.5+i*6.57];
+            return [x, 90.875-i*0.070, 163.5+i*13.65];
         }).forEach(function (x) { render_digital_pin (x, large, anchored_start); });
 
         [
@@ -189,7 +183,7 @@ var Control = React.createClass({
             {signal: 'GPIO3_21',    tag: 'j14_37', class: 'digital'},
             {signal: 'DGND',        tag: 'j14_39', class: 'power'}
         ].map(function(x, i) {
-            return [x, 40-i*0.070, 84.5+i*6.57];
+            return [x, 78-i*0.070, 163.5+i*13.65];
         }).forEach(function (x) { render_digital_pin (x, large, anchored_end); });
 
         // Analog inputs
@@ -199,7 +193,7 @@ var Control = React.createClass({
             {signal: 'AIN6', tag: 'j15_26', class: 'analog'}
         ]
         .map (function (x, i) {
-            return [x, 132.375-i*0.075, 151+i*6.55];
+            return [x, 264.6-i*0.075, 301+i*13.65];
         }).forEach(function (x) { render_analog_pin (x, large, anchored_start); });
         [
             {signal: 'AIN0', tag: 'j15_19', class: 'analog'},
@@ -208,7 +202,7 @@ var Control = React.createClass({
             {signal: 'AIN3', tag: 'j15_25', class: 'analog'}
         ]
         .map (function (x, i) {
-            return [x, 126-i*0.075, 144.25+i*6.55];
+            return [x, 250.6-i*0.075, 287.25+i*13.65];
         }).forEach(function (x) { render_analog_pin (x, large, anchored_end); });
 
             // Test I/O
@@ -217,13 +211,13 @@ var Control = React.createClass({
         svg.select('#j14_33').classed('off', true);
         svg.select('#j14_13').classed('off', true);
         svg.select('#j15_13').classed('off', true);
-        svg.select('#j15_22').select('rect.bar').attr('width', 5);
-        svg.select('#j15_24').select('rect.bar').attr('width', 19);
-        svg.select('#j15_26').select('rect.bar').attr('width', 13);
-        svg.select('#j15_19').select('rect.bar').attr('width', 10);
-        svg.select('#j15_21').select('rect.bar').attr('width', 4);
-        svg.select('#j15_23').select('rect.bar').attr('width', 0);
-        svg.select('#j15_25').select('rect.bar').attr('width', 12);
+        svg.select('#j15_22').select('rect.bar').attr('width', 10);
+        svg.select('#j15_24').select('rect.bar').attr('width', 38);
+        svg.select('#j15_26').select('rect.bar').attr('width', 26);
+        svg.select('#j15_19').select('rect.bar').attr('width', 20);
+        svg.select('#j15_21').select('rect.bar').attr('width', 8);
+        svg.select('#j15_23').select('rect.bar').attr('width', 1);
+        svg.select('#j15_25').select('rect.bar').attr('width', 24);
     },
     render: function() {
         return (

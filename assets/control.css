@@ -7,6 +7,7 @@ text {
     fill: #FFFF00;
     fill-opacity: 1;
     font-family:Bitstream Vera Sans;
+    font-size: 10px;
 }
 
 .power rect {
@@ -18,12 +19,14 @@ text {
     fill: #ffffff;
     fill-opacity: 1;
     font-family:Bitstream Vera Sans;
+    font-size: 10px;
 }
 
 .digital text {
     fill: #ffffff;
     fill-opacity: 1;
     font-family:Bitstream Vera Sans;
+    font-size: 10px;
 }
 
 .digital rect.pin {
@@ -40,6 +43,7 @@ text {
     fill: #ffffff;
     fill-opacity: 1;
     font-family:Bitstream Vera Sans;
+    font-size: 10px;
 }
 
 .analog rect.pin {
