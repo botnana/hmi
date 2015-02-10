@@ -1,3 +1,10 @@
+.svg-container {
+    width: 90%;
+    height: 0;
+    padding-top: 8%;
+    position: relative;
+}
+
 .reactive-background {
     fill:#000000;
     fill-opacity: 0.35;

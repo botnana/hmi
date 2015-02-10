@@ -7,7 +7,7 @@ var React = require('react');
 
 var Control = React.createClass({
     componentDidMount: function () {
-        var svg = d3.select(this.getDOMNode());
+        var svg = d3.select(this.getDOMNode()).select('svg');
 // 相片的大小於 (1792,2040), SVG 設為其 1/4。
         svg
         .attr('viewBox', '0 0 448 510')
@@ -221,7 +221,9 @@ var Control = React.createClass({
     },
     render: function() {
         return (
-            <svg id="control"></svg>
+            <div className="svg-container">
+                <svg id="control"></svg>
+            </div>
         );
     }
 });
