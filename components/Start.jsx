@@ -13,18 +13,25 @@ var guide = {
     'zh': <div>
             <h1>BotBone 入門</h1>
             <p>
-              BotBone 為一款動程科技 (Mapacode Inc.) 針對工業教育以及工業自動化開發，
-              由麗臺科技 (Leadtek Research Inc.) 製造行銷的工業以太網開發平台，在設計上它和樹莓派 Model B+ 的腳位相容。
+                BotBone 帶你進自動化及工業 4.0 的世界，你可以透過它學到
+                <ul>
+                    <li>實時作業系統 RTOS</li>
+                    <li>互動式網頁人機界面 Web-based HMI</li>
+                    <li>資料採集與監控系統 SCADA</li>
+                    <li>工業以太網 Industry Ethernet</li>
+                    <li>工業物聯網 IIot</li>
+                    <li>雲端垂直整合</li>
+                </ul>
+              由動程科技 (Mapacode Inc.) 設計，麗臺科技 (Leadtek Research Inc.) 製造行銷，
+              和樹莓派 Model B+ 的腳位相容。
               方便學生及工程師整合樹莓派的各種子板。
               線路設計則以 BeagleBone Black 為基礎。
-              但具有 2 組 RJ45， 內建基本的工業以太網／工業物聯網軟體、工業控制軟體、
-              互動式網頁人機界面軟體，
+              具有 2 組 RJ45， 內建基本工業控制軟體及開發工具，
               方便研發人員或學生實驗各種工業控制、工業以太網／工業物聯網的構想。
             </p>
             <h2>步驟一：接上電源</h2>
               BotBone 能從 micro USB 供電，但如果供電電流不夠，會導至 BotBone 當機。因此若有當機現象，
-              請透過板上 3.96 接口連接能提供 1.5 A 的電源。
-              BotBone 內建直流電壓轉換電路，能接受 5.5V 至 36V 的電壓。
+              請透過板上 3.96 接口連接能提供 1.5 A，5.5V 至 36V 的電壓源。
             <h2>步驟二：連結 micro USB 至電腦</h2>
             <h2>步驟三：安裝驅動程式</h2>
             <h2>步驟四：瀏覽 BotBone</h2>
