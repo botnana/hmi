@@ -8,8 +8,6 @@ var React = require('react');
 var debug = require('debug');
 var bootstrapDebug = debug('Example');
 var app = require('./app');
-require("./node_modules/purecss/pure-min.css");
-require("./node_modules/purecss/grids-responsive-min.css");
 
 var dehydratedState = window.App; // Sent from the server
 

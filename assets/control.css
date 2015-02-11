@@ -1,8 +1,6 @@
 .svg-container {
     width: 90%;
-    height: 0;
     padding-top: 8%;
-    position: relative;
 }
 
 .reactive-background {
@@ -13,7 +11,7 @@
 text {
     fill: #FFFF00;
     fill-opacity: 1;
-    font-family:Bitstream Vera Sans;
+    font-family: sans-serif;
     font-size: 10px;
 }
 
@@ -25,14 +23,14 @@ text {
 .power text {
     fill: #ffffff;
     fill-opacity: 1;
-    font-family:Bitstream Vera Sans;
+    font-family: sans-serif;
     font-size: 10px;
 }
 
 .digital text {
     fill: #ffffff;
     fill-opacity: 1;
-    font-family:Bitstream Vera Sans;
+    font-family: sans-serif;
     font-size: 10px;
 }
 
@@ -49,7 +47,7 @@ text {
 .analog text {
     fill: #ffffff;
     fill-opacity: 1;
-    font-family:Bitstream Vera Sans;
+    font-family: sans-serif;
     font-size: 10px;
 }
 
@@ -68,4 +66,7 @@ text {
     fill-opacity: 0.5;
 }
 
-
+pre, code, kbd, samp, tt{
+  font-family: "Lucida Console", Courier, monospace;
+  font-size:1em;
+}

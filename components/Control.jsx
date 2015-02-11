@@ -221,7 +221,7 @@ var Control = React.createClass({
     },
     render: function() {
         return (
-            <div className="svg-container">
+            <div className="svg-container pure-img">
                 <svg id="control"></svg>
             </div>
         );

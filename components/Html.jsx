@@ -27,6 +27,7 @@ var Html = React.createClass({
                     <title>{this.props.context.getStore(ApplicationStore).getPageTitle()}</title>
                     <meta name="viewport" content="width=device-width, user-scalable=no" />
                     <link rel="stylesheet" href="/public/pure-min.css" />
+                    <link rel="stylesheet" href="/public/grids-responsive-min.css" />
                     <link rel="stylesheet" href="/public/control.css" />
                 </head>
                 <body>

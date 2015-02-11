@@ -6,12 +6,14 @@
 var React = require('react');
 var Start = require('./Start.jsx');
 var Control = require('./Control.jsx');
+var Tutorials = require('./Tutorials.jsx');
 var Application = React.createClass({
     render: function() {
         return (
             <div className="pure-g">
                 <div  className="pure-u-1-2">
                     <Control />
+                    <Tutorials />
                 </div>
                 <div className="pure-u-1-2">
                     <Start />
