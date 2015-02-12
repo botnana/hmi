@@ -93,10 +93,10 @@ var tutorials = {
                     <a href="http://stackoverflow.com/questions/16573668/best-practices-when-running-node-js-with-port-80-ubuntu-linode">
                         Best practices when running nodejs with port 80
                     </a>
-                    。使用 iptables 將 port 80 導向至 port 3000。
+                    。使用 iptables 將 micro USB 的 port 80 導向至 port 3000。
                 </p>
                 <pre><kbd>{
-                "# iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3000"
+                "# iptables -t nat -A PREROUTING -i usb0 -p tcp --dport 80 -j REDIRECT --to-port 3000"
                 }</kbd></pre>
             </div>
         </div>
