@@ -27,9 +27,33 @@ var guide = {
               方便學生及工程師整合樹莓派子板，實驗各種工業控制、工業以太網／工業物聯網的構想。
             </p>
             <h2>步驟一：接上電源</h2>
-              BotBone 能從 micro USB 供電，但如果供電電流不夠，比如使用筆電的 USB 埠供電，會導至 BotBone 當機。建議使用能供電 1.5 A 以上的 USB 電源供應器。
-              或請透過板上 3.96 接口連接能提供 1.5 A 以上，5.5V 至 36V 的電壓源。
-            <h2>步驟二：連結 micro USB 至電腦</h2>
+                <p>透過板上 3.96 接口連接 5.5V 至 36V 的電源供應器。電源供應器應能提供 1.5 A 以上電流。</p>
+                <p>註：BotBone 也支援使用大於 1.5A 的 USB 電源供應器供電從 micro USB 接口供電，好處是 USB 電源供應器隨手可得，
+                但如此作法有以下兩個缺點。</p>
+                    <ul>
+                        <li>如果使用筆電的 USB 埠或 USB Hub 供電，常會因為供電電流不足導至無法開機。</li>
+                        <li>佔用 micro USB 接口，導至無法使用 micro USB 連結電腦。</li>
+                    </ul>
+                <p>本入門使用 3.96 接口供電。</p>
+            <h2>步驟二：連結至電腦</h2>
+                <ul>
+                    <li>使用 UART 連結電腦</li>
+                    <li>使用 micro USB 連結電腦</li>
+                </ul>
+                <h3>使用 UART 連結電腦</h3>
+                <p>當出現 login 提示時，輸入 root。出現 password 提示時，按 enter。</p>
+                <pre><kbd>{
+                    "arm login: root\n" +
+                    "Passowrd: "
+                }</kbd></pre>
+                <pre><kbd>{
+                    "# apt-get update\n" +
+                    "# apt-get install nodejs-legacy\n" +
+                    "# apt-get install npm\n" +
+                    "# npm install -g grunt-cli\n" +
+                    "# apt-get install git\n"
+                }</kbd></pre>
+                <h3>使用 micro USB 連結電腦</h3>
             <h2>步驟三：安裝驅動程式</h2>
             <h2>步驟四：瀏覽 BotBone</h2>
           </div>
