@@ -11,10 +11,10 @@ var tutorials =
         <h2>How to setup WiFi</h2>
         <p>
         </p>
-        <pre>
+        <pre><kbd>
 # ifwconfig
-        </pre>
-        <pre>{
+        </kbd></pre>
+        <pre><samp>{
 "wlan0     IEEE 802.11bgn  ESSID:off/any\n" +
 "          Mode:Managed  Access Point: Not-Associated   Tx-Power=0 dBm\n" +
 "          Retry short limit:7   RTS thr=2347 B   Fragment thr:off\n" +
@@ -27,17 +27,17 @@ var tutorials =
 "\n" +
 "rename3   no wireless extensions.\n"
 }
-        </pre>
-        <pre>
+        </samp></pre>
+        <pre><kbd>
 # nano /etc/network/interfaces
-        </pre>
-        <pre>{
+        </kbd></pre>
+        <pre><code>{
 "# Wifi\n" +
 "auto wlan0\n" +
 "iface wlan0 inet dhcp\n" +
 "    wpa-ssid network_name\n" +
 "    wpa-psk  password"
-        }</pre>
+        }</code></pre>
     </div>;
 
 var Tutorials = React.createClass({
