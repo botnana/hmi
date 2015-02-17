@@ -2,6 +2,8 @@ BotBone's nodejs based HMI.
 
 # Usage
 
+    sudo apt-get install nodejs-legacy
+    sudo apt-get install npm
     npm install
     npm run build
     npm start
@@ -10,6 +12,7 @@ The server is listening on port 3000.
 
 # Deploy
 
+    npm install -g pm2
     npm install
     npm run build
     sudo npm run create-user
