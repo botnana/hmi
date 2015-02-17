@@ -17,6 +17,7 @@ The server is listening on port 3000.
     npm run build
     sudo npm run create-user
     sudo npm run deploy
+    sudo env PATH=$PATH:/usr/bin pm2 startup linux -u botnana
     su
     su botnana -c 'pm2 start /srv/www/botnana/hmi/server.js'
     exit
