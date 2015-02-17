@@ -50,7 +50,7 @@ var guide = {
                     "# apt-get update\n" +
                     "# apt-get install nodejs-legacy\n" +
                     "# apt-get install npm\n" +
-                    "# npm install -g grunt-cli\n" +
+                    "# npm install -g pm2\n" +
                     "# apt-get install git\n"
                 }</kbd></pre>
                 <h3>使用 micro USB 連結電腦</h3>
