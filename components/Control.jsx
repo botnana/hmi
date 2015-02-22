@@ -11,7 +11,7 @@ var Control = React.createClass({
 // 相片的大小於 (1792,2040), SVG 設為其 1/4。
         svg
         .attr('viewBox', '0 0 448 510')
-        .append('image').attr('xlink:href', '/public/img/botbone.png')
+        .append('image').attr('xlink:href', '/public/assets/img/botbone.png')
         .attr('y', '0').attr('x', '0')
         .attr('width', '448').attr('height', '510');
 

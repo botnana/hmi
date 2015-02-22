@@ -28,7 +28,7 @@ var Html = React.createClass({
                     <meta name="viewport" content="width=device-width, user-scalable=no" />
                     <link rel="stylesheet" href="/public/pure-min.css" />
                     <link rel="stylesheet" href="/public/grids-responsive-min.css" />
-                    <link rel="stylesheet" href="/public/control.css" />
+                    <link rel="stylesheet" href="/public/assets/control.css" />
                 </head>
                 <body>
                     <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>

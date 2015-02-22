@@ -8,7 +8,7 @@
     "build": "./node_modules/.bin/webpack && npm run copy-d3 && npm run copy-purecss && npm run copy-assets",
     "copy-d3": "install -d ./build/js && install ./node_modules/d3/d3.min.js ./build/js",
     "copy-purecss": "install -d ./build/ && install ./node_modules/purecss/pure-min.css ./build/",
-    "copy-assets": "install ./assets/*.* ./build/ && install -d ./build/img && install ./assets/img/*.* ./build/img/",
+    "copy-assets": "install -d ./build/ && cp -r ./assets ./build/",
     "deploy": "id -u botnana 1> /dev/null && echo 'Installing Botnana HMI' && install -m 0755 -o botnana -g botnana -d /srv/www/botnana/hmi && su botnana -c'cp -r ./build ./components ./configs ./node_modules ./scripts ./stores ./server.js ./app.js /srv/www/botnana/hmi' && npm run deploy-composite-gadget",
     "deploy-composite-gadget": "cp ./scripts/botnana-hmi-composite-gadget.sh /etc/init.d/ && update-rc.d botnana-hmi-composite-gadget.sh defaults"
   },
@@ -28,6 +28,7 @@
     "flux-router-component": "^0.5.7",
     "fluxible": "^0.1.5",
     "fluxible-plugin-routr": "^0.3.0",
+    "marked": "^0.3.3",
     "node-jsx": "^0.12.4",
     "purecss": "^0.5.0",
     "react": "^0.12.2",
