@@ -16,7 +16,7 @@ The server is listening on port 3000.
     npm install
     npm run build
     su
-    npm run create-user
+    adduser --disabled-login --home /srv/www/botnana --gecos 'Botnana' botnana
     npm run deploy
     env PATH=$PATH:/usr/bin pm2 startup linux -u botnana
     su botnana -c 'pm2 start /srv/www/botnana/hmi/server.js'
@@ -24,11 +24,17 @@ The server is listening on port 3000.
 
 # Undeploy
 
+TODO: use a shell script to replace npm run undeploy because package.json is not available.
+
+    cd /srv/www/botnana/hmi
     su
     su botnana -c 'pm2 stop server'
     su botnana -c 'pm2 kill'
     update-rc.d pm2-init.sh remove
     rm /etc/init.d/pm2-init.sh
     npm run undeploy
-    npm run delete-user
+    rm -R /srv/www/botnana/hmi 
+    update-rc.d botnana-hmi-composite-gadget.sh remove
+    rm /etc/init.d/botnana-hmi-composite-gadget.sh
+    userdel -r botnana
     exit
