@@ -24,15 +24,11 @@ The server is listening on port 3000.
 
 # Undeploy
 
-TODO: use a shell script to replace npm run undeploy because package.json is not available.
-
-    cd /srv/www/botnana/hmi
     su
     su botnana -c 'pm2 stop server'
     su botnana -c 'pm2 kill'
     update-rc.d pm2-init.sh remove
     rm /etc/init.d/pm2-init.sh
-    npm run undeploy
     rm -R /srv/www/botnana/hmi 
     update-rc.d botnana-hmi-composite-gadget.sh remove
     rm /etc/init.d/botnana-hmi-composite-gadget.sh
