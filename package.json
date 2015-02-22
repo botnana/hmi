@@ -12,7 +12,7 @@
     "create-user": "adduser --disabled-login --home /srv/www/botnana --gecos 'Botnana' botnana",
     "delete-user": "userdel -r botnana",
     "deploy": "id -u botnana 1> /dev/null && echo 'Installing Botnana HMI' && install -m 0755 -o botnana -g botnana -d /srv/www/botnana/hmi && su botnana -c'cp -r ./build ./components ./configs ./node_modules ./scripts ./stores ./server.js ./app.js /srv/www/botnana/hmi' && npm run deploy-composite-gadget",
-    "deploy-composite-gadget": "cp ./scripts/botnana-hmi-composite-gadget.sh /etc/init.d/ && update-rc.d botnana-hmi-composite-gadget.sh"
+    "deploy-composite-gadget": "cp ./scripts/botnana-hmi-composite-gadget.sh /etc/init.d/ && update-rc.d botnana-hmi-composite-gadget.sh",
     "undeploy": "rm -R /srv/www/botnana/hmi && npm run undeploy-composite-gadget",
     "undeploy-composite-gadget": "update-rc.d botnana-hmi-composite-gadget.sh remove && rm /etc/init.d/botnana-hmi-composite-gadget.sh"
   },
