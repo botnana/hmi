@@ -6,6 +6,9 @@
 require('node-jsx').install({ extension: '.jsx' });
 var express = require('express');
 var serialize = require('serialize-javascript');
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var csrf = require('csurf');
 var navigateAction = require('flux-router-component').navigateAction;
 var debug = require('debug')('Example');
 var React = require('react');
@@ -16,13 +19,29 @@ var server = express();
 
 server.use('/public', express.static(__dirname + '/build'));
 
+var fetchrPlugin = app.getPlugin('FetchrPlugin');
+fetchrPlugin.registerService(require('botnana-blog-service')(__dirname + '/posts/zh-Hant/'));
+server.use(fetchrPlugin.getXhrPath(), fetchrPlugin.getMiddleware());
+
+server.use(cookieParser());
+server.use(bodyParser.json());
+server.use(csrf({cookie: true}));
+
 server.use(function (req, res, next) {
-    var context = app.createContext();
+    var context = app.createContext({
+        req: req, // The fetchr plugin depends on this
+        xhrContext: {
+            _csrf: req.csrfToken() // Make sure all XHR requests have the CSRF token
+        }
+    });
+
     debug('Executing navigate action');
-    context.getActionContext().executeAction(navigateAction, {
+    context.executeAction(navigateAction, {
         url: req.url
     }, function (err) {
         if (err) {
+            console.log(err)
+            console.log(req.url);
             if (err.status && err.status === 404) {
                 next();
             } else {
@@ -34,19 +53,19 @@ server.use(function (req, res, next) {
         var exposed = 'window.App=' + serialize(app.dehydrate(context)) + ';';
         debug('Rendering Application component into html');
         var AppComponent = app.getAppComponent();
-        var html = React.renderToStaticMarkup(HtmlComponent({
-            state: exposed,
-            context: context.getComponentContext(),
-            markup: React.renderToString(AppComponent({
-                context: context.getComponentContext()
-            }))
-        }));
-        debug('Sending markup');
-        res.write(html);
-        res.end();
+
+        React.withContext(context.getComponentContext(), function () {
+            var html = React.renderToStaticMarkup(HtmlComponent({
+                state: exposed,
+                markup: React.renderToString(AppComponent())
+            }));
+
+            res.send(html);
+        });
     });
 });
 
 var port = process.env.PORT || 3000;
 server.listen(port);
 console.log('Listening on port ' + port);
+

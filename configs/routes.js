@@ -1,3 +1,10 @@
+/*
+ * Copyright 2015, Mapacode Inc.
+ * Copyrights licensed under the ISC License. See the accompanying LICENSE file for terms.
+ */
+
+var readBlog = require('../actions/readBlog');
+
 module.exports = {
         home: {
             path: '/',
@@ -5,8 +12,9 @@ module.exports = {
             page: 'home',
             label: 'Home',
             action: function (context, payload, done) {
-                context.dispatch('UPDATE_PAGE_TITLE', { pageTitle: 'Home | botnana-hmi' });
-                done();
+                context.executeAction(readBlog, {md: 'botbone-getting-started.md'}, function() {
+                    done();
+                });
             }
         },
         about: {
