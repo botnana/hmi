@@ -5,8 +5,14 @@
 
 ## 設何設定 USB gadget
 
+先安裝 udhcpd。
+
     # apt-get install udhcpd
+
+修改 /etc/network/interface。
     # nano /etc/network/interface
+
+增加以下內容至 /etc/network/interface。
 
     # Ethernet/RNDIS gadget (g_ether)
     # ... or on host side, usbnet and random hwaddr
@@ -16,11 +22,15 @@
         network 192.168.7.0
         gateway 192.168.7.1
 
+以 script botbone-g-ether-load.sh 啟動 usb0 及 udhcpd。
+
     wget -c https://www.botnana.org/downloads/botbone-g-ether-load.sh
     chmod +x botbone-g-ether-load.sh
     sudo ./botbone-g-ether-load.sh
 
 ## 如何設定 WiFi
+
+執行 iwconfig，確定有 wlan0。
 
     # ifwconfig
 
@@ -36,6 +46,8 @@
      
     rename3   no wireless extensions.
 
+修改 /etc/network/interface 如下，network_name 及 password 分別為無線網路的名稱及密碼：
+
     # nano /etc/network/interfaces
 
     # Wifi
@@ -43,6 +55,8 @@
     iface wlan0 inet dhcp
         wpa-ssid network_name
         wpa-psk  password
+
+執行 ifup wlan0 以連結無線網路。
 
     # ifup wlan0
 
