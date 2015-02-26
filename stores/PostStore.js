@@ -15,7 +15,7 @@ module.exports = createStore({
         this.posts = {posts: []};
     },
     _receivePosts: function (posts) {
-        this.posts = {posts: posts};
+        this.posts = posts;
         this.emitChange();
     },
     getAll: function () {

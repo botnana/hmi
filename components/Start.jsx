@@ -18,14 +18,14 @@ var Start = React.createClass({
         return this.getState();
     },
     getState: function () {
-        return this.getStore(PostStore).getAll();
+        return {html: this.getStore(PostStore).getAll()['botbone-getting-started.md']};
     },
     _onChange: function() {
         this.setState(this.getState());
     },
     render: function() {
         return (
-            <div dangerouslySetInnerHTML={{__html: this.state.posts[0]}}>
+            <div dangerouslySetInnerHTML={{__html: this.state.html}}>
             </div>
         );
     }

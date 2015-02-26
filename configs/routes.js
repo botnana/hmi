@@ -12,7 +12,7 @@ module.exports = {
             page: 'home',
             label: 'Home',
             action: function (context, payload, done) {
-                context.executeAction(readBlog, {md: 'botbone-getting-started.md'}, function() {
+                context.executeAction(readBlog, {md: ['botbone-getting-started.md', 'botbone-tutorials.md']}, function() {
                     done();
                 });
             }
