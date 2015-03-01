@@ -41,4 +41,11 @@ BotBone 帶你進自動化及工業 4.0 的世界，你可以透過它學到
 
 ## 步驟三：安裝驅動程式
 ## 步驟四：瀏覽 BotBone
+## 步驟五：以程式控制 I/O
 
+### 以 Forth 控制 I/O
+
+<pre class="editor">: star 42 emit ;
+: stars 0 do star loop ;
+stars
+</pre>

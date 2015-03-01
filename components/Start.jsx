@@ -23,6 +23,17 @@ var Start = React.createClass({
     _onChange: function() {
         this.setState(this.getState());
     },
+    componentDidMount: function () {
+        console.log('Start did mount');
+        console.log(this.getDOMNode().querySelectorAll('.editor'));
+        var editor;
+        var editors = this.getDOMNode().querySelectorAll('.editor');
+        for (var i = 0; i < editors.length; ++i) {
+            editor = ace.edit(editors[i]);
+            editor.setTheme("ace/theme/twilight");
+            editor.getSession().setMode("ace/mode/forth");
+        }
+    },
     render: function() {
         return (
             <div dangerouslySetInnerHTML={{__html: this.state.html}}>

@@ -29,6 +29,7 @@ var Html = React.createClass({
                     <link rel="stylesheet" href="/public/grids-responsive-min.css" />
                     <link rel="stylesheet" href="/public/assets/control.css" />
                 </head>
+                <script src="/public/js/MiniCodeEdit/src-min/ace.js"></script>
                 <body>
                     <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
                 </body>
