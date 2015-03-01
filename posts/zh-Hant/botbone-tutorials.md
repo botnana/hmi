@@ -78,12 +78,11 @@
     DHCPACK from 172.20.10.1
     bound to 172.20.10.11 -- renewal in 38630 seconds.
 
+對網路進行最佳化，參考 [Debian reference](https://www.debian.org/doc/manuals/debian-reference/index.en.html) 的 [5.8](https://www.debian.org/doc/manuals/debian-reference/ch05.en.html#_network_optimization) 節。
+
 ## 如何讓 nodejs 伺服器使用 port 80
 
-參考
-<a href="http://stackoverflow.com/questions/16573668/best-practices-when-running-node-js-with-port-80-ubuntu-linode">
-Best practices when running nodejs with port 80
-</a>
+參考 [Best practices when running nodejs with port 80](http://stackoverflow.com/questions/16573668/best-practices-when-running-node-js-with-port-80-ubuntu-linode)
 。使用 iptables 將 micro USB 的 port 80 導向至 port 3000。
 
     # iptables -t nat -A PREROUTING -i usb0 -p tcp --dport 80 -j REDIRECT --to-port 3000
