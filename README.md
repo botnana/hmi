@@ -12,25 +12,31 @@ The server is listening on port 3000.
 
 # Deploy
 
+先安裝 pm2 以及建立一個執行 webserver 的 user botnana。
+
     npm install -g pm2
+    sudo adduser --disabled-login --home /srv/www/botnana --gecos 'Botnana' botnana
+    sudo env PATH=$PATH:/usr/bin pm2 startup linux -u botnana
+
+再將 botnana-hmi 安裝至 /srv/www/botnana/hmi 下。
+
     npm install
     npm run build
     su
-    adduser --disabled-login --home /srv/www/botnana --gecos 'Botnana' botnana
     npm run deploy
-    env PATH=$PATH:/usr/bin pm2 startup linux -u botnana
     su botnana -c 'pm2 start /srv/www/botnana/hmi/server.js'
     exit
 
 # Undeploy
 
-    su
-    su botnana -c 'pm2 stop server'
-    su botnana -c 'pm2 kill'
-    update-rc.d pm2-init.sh remove
-    rm /etc/init.d/pm2-init.sh
-    rm -R /srv/www/botnana/hmi 
-    update-rc.d botnana-hmi-composite-gadget.sh remove
-    rm /etc/init.d/botnana-hmi-composite-gadget.sh
-    userdel -r botnana
-    exit
+    # su botnana
+    $ pm2 stop server
+    $ pm2 kill
+    $ exit
+    # update-rc.d pm2-init.sh remove
+    # rm /etc/init.d/pm2-init.sh
+    # rm -R /srv/www/botnana/hmi 
+    # update-rc.d botnana-hmi-composite-gadget.sh remove
+    # rm /etc/init.d/botnana-hmi-composite-gadget.sh
+    # userdel -r botnana
+
