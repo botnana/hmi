@@ -24,14 +24,16 @@ var Start = React.createClass({
         this.setState(this.getState());
     },
     componentDidMount: function () {
-        console.log('Start did mount');
-        console.log(this.getDOMNode().querySelectorAll('.editor'));
         var editor;
         var editors = this.getDOMNode().querySelectorAll('.editor');
         for (var i = 0; i < editors.length; ++i) {
             editor = ace.edit(editors[i]);
             editor.setTheme("ace/theme/twilight");
-            editor.getSession().setMode("ace/mode/forth");
+            if(editors[i].className.indexOf("forth") >= 0) {
+                editor.getSession().setMode("ace/mode/forth");
+            } else if(editors[i].className.indexOf("javascript") >= 0) {
+                editor.getSession().setMode("ace/mode/javascript");
+            }
         }
     },
     render: function() {

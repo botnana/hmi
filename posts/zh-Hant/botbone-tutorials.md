@@ -87,3 +87,25 @@
 
     # iptables -t nat -A PREROUTING -i usb0 -p tcp --dport 80 -j REDIRECT --to-port 3000
 
+## 如何透過 micor USB 連網。
+
+在學校教室或工作場所裡，常常使用 WIFI 網路，不見得有多餘的 Ethernet cable 或 WIFI dongle 提供 BotBone 可靠的網路。透過 micro USB 接口，使用者能夠很容易地將 BotBone 連上自己的電腦，並透過電腦上的無線網路連網。以下為使用 Linux 為主電腦的作法：
+
+首先在 BotBone 上
+
+    ifup usb0
+    echo nameserver 8.8.8.8 > /etc/resolv.conf
+
+在 Linux 主電腦上，首先使用 ifconfig 看看對應 usb 的是哪個界面。以下假設主電腦透過無線的 wlan0 連網，透過 eth5 連結 BotBone。
+
+    $ sudo su
+    ifconfig
+    ifconfig eth5 192.168.7.1 
+    ptables --table nat --append POSTROUTING --out-interface wlan0 -j MASQUERADE
+    iptables --append FORWARD --in-interface eth5 -j ACCEPT
+    echo 1 > /proc/sys/net/ipv4/ip_forward
+
+TODO: 應修改以下文件成為 BotBone 專屬文件。
+
+若是使用 Windows 為主電腦，請參考文件 [Getting Started USB Network Adapter on the BeagleBone](http://derekmolloy.ie/beaglebone/getting-started-usb-network-adapter-on-the-beaglebone/)
+

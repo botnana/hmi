@@ -43,9 +43,15 @@ BotBone 帶你進自動化及工業 4.0 的世界，你可以透過它學到
 ## 步驟四：瀏覽 BotBone
 ## 步驟五：以程式控制 I/O
 
-### 以 Forth 控制 leds
+BotBone 使用 Forth 語言做為它的硬體控制語言以實現設計彈性以及性能。
+使用 javascript 來整合硬體、網路和雲端。你也可以創造自己的硬體和雲端控制語言。
 
-<pre class="editor">
+### 以 Forth 控制 LED
+
+以下為一以 Forth 語言控制 LED 的程式，你可以點擊執行鈕以執行程式，也可以修改後執行。
+
+<button class="pure-button pure-button-primary">執行</button>
+<pre class="editor forth">
 #out 0 led pinmode!
 #out 1 led pinmode!
 #out 2 led pinmode!
@@ -66,9 +72,15 @@ BotBone 帶你進自動化及工業 4.0 的世界，你可以透過它學到
 2 led pin@
 3 led pin@</pre>
 
-### 以 Javascript 控制 leds
+### 以 Javascript 控制 LED
 
-<pre class="editor">var b = require('botbone-io');
+以下為以 Javascript 控制 BotBone LED 的範例。此範例透過在 Botbone 上的 nodejs 執行。
+Javascript 並不直接控制硬體，而是產生對應的 Forth 程式來控制硬體。此一作法帶來更佳的性能，而且可以和實時系統整合。
+
+以下為一以 Javascript 控制 LED 的程式，你可以點擊執行鈕以執行程式，也可以修改後執行。
+
+<button class="pure-button pure-button-primary">執行</button>
+<pre class="editor javascript">var b = require('botbone-io');
 b.pinMode('USR0', b.OUTPUT);
 b.pinMode('USR1', b.OUTPUT);
 b.pinMode('USR2', b.OUTPUT);
@@ -78,3 +90,10 @@ b.digitalWrite('USR1', b.HIGH);
 b.digitalWrite('USR2', b.HIGH);
 b.digitalWrite('USR3', b.HIGH);
 setTimeout(restore, 2000);</pre>
+
+參考以下文件以瞭解 BotBone 使用的 Botnana OS 控制軟體的架構以及提供的 Forth 及 Javascript 指令。你也可以設計自己的架構：
+
+* [Botnana OS 軟體架構](botnana-os-architecture.md)。
+* [BotBone 的硬體控制語言 Forth 及其指令](botbone-io-forth.md)。
+* [botbone-io: BotBone 的 Javascript 指令](botbone-io-js.md)。
+
