@@ -43,9 +43,38 @@ BotBone 帶你進自動化及工業 4.0 的世界，你可以透過它學到
 ## 步驟四：瀏覽 BotBone
 ## 步驟五：以程式控制 I/O
 
-### 以 Forth 控制 I/O
+### 以 Forth 控制 leds
 
-<pre class="editor">: star 42 emit ;
-: stars 0 do star loop ;
-stars
-</pre>
+<pre class="editor">
+#out 0 led pinmode!
+#out 1 led pinmode!
+#out 2 led pinmode!
+#out 3 led pinmode!
+
+0 led pinmode@
+1 led pinmode@
+2 led pinmode@
+3 led pinmode@
+
+1 0 led pin!
+1 1 led pin!
+1 2 led pin!
+1 3 led pin!
+
+0 led pin@
+1 led pin@
+2 led pin@
+3 led pin@</pre>
+
+### 以 Javascript 控制 leds
+
+<pre class="editor">var b = require('botbone-io');
+b.pinMode('USR0', b.OUTPUT);
+b.pinMode('USR1', b.OUTPUT);
+b.pinMode('USR2', b.OUTPUT);
+b.pinMode('USR3', b.OUTPUT);
+b.digitalWrite('USR0', b.HIGH);
+b.digitalWrite('USR1', b.HIGH);
+b.digitalWrite('USR2', b.HIGH);
+b.digitalWrite('USR3', b.HIGH);
+setTimeout(restore, 2000);</pre>
