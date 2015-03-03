@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://ccwu660601@bitbucket.org/mapacode/botbone-hmi.git"
+    "url": "ssh://botnana@botnana.mapacode.tw/botnana-hmi.git"
   },
   "keywords": [
     "Botbone"
