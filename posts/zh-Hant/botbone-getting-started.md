@@ -96,9 +96,9 @@ b.digitalWrite('USR3', b.HIGH);
 setTimeout(restore, 2000);</pre>
 </form>
 
-參考以下文件以瞭解 BotBone 使用的 Botnana OS 控制軟體的架構以及提供的 MSL 及 Javascript 指令。你也可以設計自己的架構：
+參考以下文件以瞭解 BotBone 使用的 Botnana 平台的架構以及提供的 MSL 及 Javascript 指令。你也可以設計自己的架構：
 
-* [Botnana OS 軟體架構](botnana-os-architecture.md)。
+* [Botnana HMI 架構](/public/assets/img/botnana-hmi-flux.svg)。
 * [BotBone 的硬體控制語言 MSL 及其指令](botbone-io-forth.md)。
 * [botbone-io: BotBone 的 Javascript 指令](botbone-io-js.md)。
 
