@@ -23,16 +23,30 @@ var Start = React.createClass({
     _onChange: function() {
         this.setState(this.getState());
     },
+    handleMsl: function(event) {
+        event.preventDefault();
+        console.log('handleMsl');
+    },
+    handleJavascript: function(event) {
+        event.preventDefault();
+        console.log('handleJavascript');
+    },
     componentDidMount: function () {
-        var editor;
-        var editors = this.getDOMNode().querySelectorAll('.editor');
-        for (var i = 0; i < editors.length; ++i) {
-            editor = ace.edit(editors[i]);
+        var node = this.getDOMNode();
+        var editor, button;
+        var i;
+        var forms = node.querySelectorAll('form.msl, form.javascript');
+        console.log(forms);
+        for (i = 0; i < forms.length; ++i) {
+            editor = ace.edit(forms[i].querySelector('pre.editor'));
             editor.setTheme("ace/theme/twilight");
-            if(editors[i].className.indexOf("forth") >= 0) {
+            button = forms[i].querySelector('button');
+            if(forms[i].classList.contains("msl")) {
                 editor.getSession().setMode("ace/mode/forth");
-            } else if(editors[i].className.indexOf("javascript") >= 0) {
+                button.addEventListener("click", this.handleMsl, false);
+            } else if(forms[i].classList.contains("javascript")) {
                 editor.getSession().setMode("ace/mode/javascript");
+                button.addEventListener("click", this.handleJavascript, false);
             }
         }
     },

@@ -51,8 +51,9 @@ BotBone 使用一 Forth-like 語言 MSL (Mapacode Scripting Language) 做為它�
 
 以下為一以 MSL 語言控制 LED 的程式，你可以點擊執行鈕以執行程式，也可以修改後執行。
 
+<form class="pure-form msl">
 <button class="pure-button pure-button-primary">執行</button>
-<pre class="editor forth">
+<pre class="editor">
 #out 0 led pinmode!
 #out 1 led pinmode!
 #out 2 led pinmode!
@@ -72,6 +73,7 @@ BotBone 使用一 Forth-like 語言 MSL (Mapacode Scripting Language) 做為它�
 1 led pin@
 2 led pin@
 3 led pin@</pre>
+</form>
 
 ### 以 Javascript 控制 LED
 
@@ -80,8 +82,9 @@ Javascript 並不直接控制硬體，而是產生對應的 MSL 程式來控制�
 
 以下為一以 Javascript 控制 LED 的程式，你可以點擊執行鈕以執行程式，也可以修改後執行。
 
+<form class="pure-form javascript">
 <button class="pure-button pure-button-primary">執行</button>
-<pre class="editor javascript">var b = require('botbone-io');
+<pre class="editor">var b = require('botbone-io');
 b.pinMode('USR0', b.OUTPUT);
 b.pinMode('USR1', b.OUTPUT);
 b.pinMode('USR2', b.OUTPUT);
@@ -91,6 +94,7 @@ b.digitalWrite('USR1', b.HIGH);
 b.digitalWrite('USR2', b.HIGH);
 b.digitalWrite('USR3', b.HIGH);
 setTimeout(restore, 2000);</pre>
+</form>
 
 參考以下文件以瞭解 BotBone 使用的 Botnana OS 控制軟體的架構以及提供的 MSL 及 Javascript 指令。你也可以設計自己的架構：
 
