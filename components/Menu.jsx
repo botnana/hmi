@@ -11,8 +11,9 @@ var Menu = React.createClass({
             <div className="pure-menu pure-menu-horizontal pure-menu-open">
                 <a href="#" className="pure-menu-heading pure-menu-link">BotBone</a>
                 <ul className="pure-menu-list">
-                    <li className="pure-menu-item"><a href="#" className="pure-menu-link">Tutorials</a></li>
                     <li className="pure-menu-item"><a href="#" className="pure-menu-link">Playground</a></li>
+                    <li className="pure-menu-item"><a href="#" className="pure-menu-link">Tutorials</a></li>
+                    <li className="pure-menu-item"><a href="#" className="pure-menu-link">Reference</a></li>
                     <li className="pure-menu-item"><a href="#" className="pure-menu-link">FAQ</a></li>
                 </ul>
             </div>
