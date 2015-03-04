@@ -13,17 +13,18 @@ module.exports = {
             label: 'Home',
             action: function (context, payload, done) {
                 context.executeAction(readBlog, {md: ['botbone-getting-started.md', 'botbone-tutorials.md']}, function() {
+                    context.dispatch('UPDATE_PAGE_TITLE', { pageTitle: 'Getting Started | BotBone' });
                     done();
                 });
             }
         },
-        about: {
+        playground: {
             path: '/about',
             method: 'get',
             page: 'about',
             label: 'About',
             action: function (context, payload, done) {
-                context.dispatch('UPDATE_PAGE_TITLE', { pageTitle: 'About | botnana-hmi' });
+                context.dispatch('UPDATE_PAGE_TITLE', { pageTitle: 'Playground | BotBone ' });
                 done();
             }
         },
