@@ -7,21 +7,45 @@ var React = require('react');
 var Start = require('./Start.jsx');
 var Control = require('./Control.jsx');
 var Tutorials = require('./Tutorials.jsx');
-var Menu = require('./Menu.jsx');
+var Nav = require('./Nav.jsx');
+var RouterMixin = require('flux-router-component').RouterMixin;
+var FluxibleMixin = require('fluxible').Mixin;
+var ApplicationStore = require('../stores/ApplicationStore');
+
 var Application = React.createClass({
+    mixins: [RouterMixin, FluxibleMixin],
+    statics: {
+        storeListeners: [ApplicationStore]
+    },
+    getInitialState: function () {
+        return this.getStore(ApplicationStore).getState();
+    },
+    onChange: function () {
+        var state = this.getStore(ApplicationStore).getState();
+        this.setState(state);
+    },
     render: function() {
+        var output = '';
+        switch(this.state.currentPageName) {
+            case 'home':
+                output =
+                    <div className="pure-g">
+                        <div className="pure-u-1-2">
+                            <Start />
+                        </div>
+                        <div  className="pure-u-1-2">
+                            <Control/>
+                        </div>
+                    </div>
+                break;
+            case 'tutorials':
+                output = <Tutorials />
+                break;
+        }
         return (
             <div>
-                <Menu />
-                <div className="pure-g">
-                    <div className="pure-u-1-2">
-                        <Start />
-                    </div>
-                    <div  className="pure-u-1-2">
-                        <Control/>
-                        <Tutorials />
-                    </div>
-                </div>
+                <Nav selected={this.state.currentPageName} links={this.state.pages} />
+                {output}
             </div>
         );
     }

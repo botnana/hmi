@@ -10,7 +10,7 @@ module.exports = {
             path: '/',
             method: 'get',
             page: 'home',
-            label: 'Home',
+            label: 'Getting Started',
             action: function (context, payload, done) {
                 context.executeAction(readBlog, {md: ['botbone-getting-started.md', 'botbone-tutorials.md']}, function() {
                     context.dispatch('UPDATE_PAGE_TITLE', { pageTitle: 'Getting Started | BotBone' });
@@ -18,13 +18,13 @@ module.exports = {
                 });
             }
         },
-        playground: {
-            path: '/about',
+        tutorials: {
+            path: '/tutorials',
             method: 'get',
-            page: 'about',
-            label: 'About',
+            page: 'tutorials',
+            label: 'Tutorials',
             action: function (context, payload, done) {
-                context.dispatch('UPDATE_PAGE_TITLE', { pageTitle: 'Playground | BotBone ' });
+                context.dispatch('UPDATE_PAGE_TITLE', { pageTitle: 'Tutorials | BotBone ' });
                 done();
             }
         },
