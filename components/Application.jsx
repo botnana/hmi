@@ -48,6 +48,13 @@ var Application = React.createClass({
                 {output}
             </div>
         );
+    },
+    componentDidUpdate: function(prevProps, prevState) {
+        var newState = this.state;
+        if (newState.pageTitle === prevState.pageTitle) {
+            return;
+        }
+        document.title = newState.pageTitle;
     }
 });
 
