@@ -6,7 +6,7 @@
 var _posts = [
     {
         title: 'Botbone 入門',
-        md: 'botbone-geting-started.md',
+        md: 'botbone-getting-started.md',
         published: '2015-02-25',
         preview: 'BotBone Getting Started Guide'
     },

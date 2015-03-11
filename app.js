@@ -17,7 +17,7 @@ app.plug(routrPlugin({
 }));
 
 app.registerStore(require('./stores/ApplicationStore'));
-app.registerStore(require('./stores/PostStore'));
+app.registerStore(require('botnana-blog-view/stores/BlogStore'));
 
 app.plug(fetchrPlugin({
     xhrPath: '/api'

@@ -4,23 +4,21 @@
  */
 'use strict';
 var React = require('react');
-var PostStore = require('../stores/PostStore');
+var BlogStore = require('botnana-blog-view/stores/BlogStore');
 var FluxibleMixin = require('fluxible').Mixin;
 
 var Start = React.createClass({
     mixins: [FluxibleMixin],
     statics: {
-        storeListeners: {
-            _onChange: [PostStore]
-        }
+        storeListeners: [BlogStore]
     },
     getInitialState: function () {
         return this.getState();
     },
     getState: function () {
-        return {html: this.getStore(PostStore).getAll()['botbone-getting-started.md']};
+        return {html: this.getStore(BlogStore).getPosts().posts['botbone-getting-started.md'].content};
     },
-    _onChange: function() {
+    onChange: function() {
         this.setState(this.getState());
     },
     handleMsl: function(event) {

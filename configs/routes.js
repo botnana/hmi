@@ -3,7 +3,7 @@
  * Copyrights licensed under the ISC License. See the accompanying LICENSE file for terms.
  */
 
-var readBlog = require('../actions/readBlog');
+var showPosts = require('botnana-blog-view/actions/showPosts');
 
 module.exports = {
         home: {
@@ -12,7 +12,7 @@ module.exports = {
             page: 'home',
             label: 'Getting Started',
             action: function (context, payload, done) {
-                context.executeAction(readBlog, {md: ['botbone-getting-started.md', 'botbone-tutorials.md']}, function() {
+                context.executeAction(showPosts, {md: ['botbone-getting-started.md', 'botbone-tutorials.md']}, function() {
                     context.dispatch('UPDATE_PAGE_TITLE', { pageTitle: 'Getting Started | BotBone' });
                     done();
                 });
