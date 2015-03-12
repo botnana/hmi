@@ -6,7 +6,8 @@
 var React = require('react');
 var Start = require('./Start.jsx');
 var Control = require('./Control.jsx');
-var Tutorials = require('./Tutorials.jsx');
+var Blog = require('botnana-blog-view/components/Blog.jsx');
+var Post = require('botnana-blog-view/components/Post');
 var Nav = require('./Nav.jsx');
 var RouterMixin = require('flux-router-component').RouterMixin;
 var FluxibleMixin = require('fluxible').Mixin;
@@ -39,7 +40,10 @@ var Application = React.createClass({
                     </div>
                 break;
             case 'tutorials':
-                output = <Tutorials />
+                output = <Blog blogPath={this.props.context.blogPath} />
+                break;
+            case 'page':
+                output = <Post />
                 break;
         }
         return (

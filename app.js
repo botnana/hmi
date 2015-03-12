@@ -7,14 +7,17 @@ var React = require('react');
 var FluxibleApp = require('fluxible');
 var routrPlugin = require('fluxible-plugin-routr');
 var fetchrPlugin = require('fluxible-plugin-fetchr');
+var blogPlugin = require('botnana-blog-view');
 
 var app = new FluxibleApp({
-    appComponent: React.createFactory(require('./components/Application.jsx'))
+    component: React.createFactory(require('./components/Application.jsx'))
 });
 
 app.plug(routrPlugin({
     routes: require('./configs/routes')
 }));
+
+app.plug(blogPlugin);
 
 app.registerStore(require('./stores/ApplicationStore'));
 app.registerStore(require('botnana-blog-view/stores/BlogStore'));

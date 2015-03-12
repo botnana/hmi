@@ -1,6 +1,6 @@
 {
   "name": "botnana-hmi",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "BotBone's nodejs based HMI.",
   "private": true,
   "main": "index.js",
@@ -31,8 +31,8 @@
     "d3": "^3.5.3",
     "debug": "^2.1.1",
     "express": "^4.11.1",
-    "flux-router-component": "^0.5.12",
-    "fluxible": "^0.2.2",
+    "flux-router-component": "^0.5.15",
+    "fluxible": "^0.2.9",
     "fluxible-plugin-fetchr": "^0.2.3",
     "fluxible-plugin-routr": "^0.3.0",
     "marked": "^0.3.3",

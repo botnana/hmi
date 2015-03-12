@@ -29,6 +29,7 @@ server.use(csrf({cookie: true}));
 
 server.use(function (req, res, next) {
     var context = app.createContext({
+        blogPath: '/page',
         req: req, // The fetchr plugin depends on this
         xhrContext: {
             _csrf: req.csrfToken() // Make sure all XHR requests have the CSRF token
@@ -52,16 +53,16 @@ server.use(function (req, res, next) {
         debug('Exposing context state');
         var exposed = 'window.App=' + serialize(app.dehydrate(context)) + ';';
         debug('Rendering Application component into html');
-        var AppComponent = app.getAppComponent();
+        var Component = app.getComponent();
 
-        React.withContext(context.getComponentContext(), function () {
-            var html = React.renderToStaticMarkup(HtmlComponent({
-                state: exposed,
-                markup: React.renderToString(AppComponent())
-            }));
+        var html = React.renderToStaticMarkup(HtmlComponent({
+            state: exposed,
+            markup: React.renderToString(Component({context:context.getComponentContext()})),
+            context: context.getComponentContext()
+        }));
 
-            res.send(html);
-        });
+        res.send(html);
+
     });
 });
 
