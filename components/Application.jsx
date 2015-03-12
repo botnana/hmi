@@ -4,7 +4,6 @@
  */
 'use strict';
 var React = require('react');
-var Start = require('./Start.jsx');
 var Control = require('./Control.jsx');
 var Blog = require('botnana-blog-view/components/Blog.jsx');
 var Post = require('botnana-blog-view/components/Post');
@@ -32,7 +31,7 @@ var Application = React.createClass({
                 output =
                     <div className="pure-g">
                         <div className="pure-u-1-2">
-                            <Start />
+                            <Post />
                         </div>
                         <div  className="pure-u-1-2">
                             <Control/>
