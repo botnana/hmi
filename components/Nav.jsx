@@ -14,12 +14,15 @@ var Nav = React.createClass({
         };
     },
     render: function() {
-        var selected = this.props.selected,
-            links = this.props.links,
-            context = this.props.context,
-            linkHTML = Object.keys(links).map(function (name) {
-                var className = '',
-                    link = links[name];
+        var selected = this.props.selected;
+        var links = this.props.links;
+        var context = this.props.context;
+        var linkHTML = Object.keys(links).map(function (name) {
+            var className = '',
+                link = links[name];
+
+            //print only link with label
+            if(link.label) {
                 if (selected === name) {
                     className = 'pure-menu-selected';
                 }
@@ -28,7 +31,8 @@ var Nav = React.createClass({
                         <NavLink routeName={link.page}>{link.label}</NavLink>
                     </li>
                 );
-            });
+            }
+        });
         return (
             <ul className="pure-menu pure-menu-open pure-menu-horizontal">
                 {linkHTML}
