@@ -11,7 +11,7 @@ var ApplicationStore = createStore({
         'CHANGE_ROUTE_SUCCESS' : 'handleNavigate',
         'UPDATE_PAGE_TITLE' : 'updatePageTitle'
     },
-    initialize: function (dispatcher) {
+    initialize: function () {
         this.currentPageName = null;
         this.currentPage = null;
         this.currentRoute = null;
