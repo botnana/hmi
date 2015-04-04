@@ -27,7 +27,8 @@ var Html = React.createClass({
                     <meta name="viewport" content="width=device-width, user-scalable=no" />
                     <link rel="stylesheet" href="/public/pure-min.css" />
                     <link rel="stylesheet" href="/public/grids-responsive-min.css" />
-                    <link rel="stylesheet" href="/public/assets/control.css" />
+                    <link rel="stylesheet" href="/assets/blog.css" />
+                    <link rel="stylesheet" href="/assets/control.css" />
                 </head>
                 <script src="/public/js/MiniCodeEdit/src-min/ace.js"></script>
                 <body>

@@ -18,6 +18,7 @@ var HtmlComponent = React.createFactory(require('./components/Html.jsx'));
 var server = express();
 
 server.use('/public', express.static(__dirname + '/build'));
+server.use('/assets', express.static(__dirname + '/assets'));
 
 var fetchrPlugin = app.getPlugin('FetchrPlugin');
 fetchrPlugin.registerService(require('botnana-blog-service')(__dirname + '/posts/zh-Hant/'));
