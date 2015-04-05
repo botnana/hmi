@@ -7,6 +7,7 @@ var _posts = [
     {
         title: 'Botbone 入門',
         md: 'botbone-getting-started.md',
+        img: 'botbone.png',
         published: '2015-02-25',
         author: 'Sirius Wu',
         preview: 'BotBone 帶你進自動化及工業 4.0 的世界，你可以透過它學到...'
