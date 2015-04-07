@@ -3,7 +3,7 @@
  */
 'use strict';
 
-var _posts = {
+var sections = [{
     section: 'tutorials',
     posts: [
         {
@@ -29,7 +29,7 @@ var _posts = {
             preview: 'BotBone 內建的工業物聯網開發環境整合了微型部落格、簡易 SCADA/HMI 以及硬體控制語言 MSL 及其執行環境。'
         }
     ]
-};
+}];
 
-module.exports = _posts;
+module.exports = sections;
 
