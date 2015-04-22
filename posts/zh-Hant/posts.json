@@ -1,10 +1,5 @@
-/**
- * Copyright 2015, Mapacode Inc.
- */
-'use strict';
-
-var posts = {
-    data: [{
+{
+    "data": [{
         "title": "Botbone 入門",
         "md": "botbone-getting-started.md",
         "img": "botbone.png",
@@ -27,7 +22,5 @@ var posts = {
         "preview": "BotBone 內建的工業物聯網開發環境整合了微型部落格、簡易 SCADA/HMI 以及硬體控制語言 MSL 及其執行環境。",
         "tags": ["tutorials"]
     }]
-};
-
-module.exports = posts;
+}
 
