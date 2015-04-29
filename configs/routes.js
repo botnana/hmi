@@ -4,7 +4,7 @@
  */
 
 var showBlog = require('botnana-blog-view/actions/showBlog');
-var showPosts = require('botnana-blog-view/actions/showPosts');
+var showPost = require('botnana-blog-view/actions/showPost');
 
 module.exports = {
         home: {
@@ -13,7 +13,7 @@ module.exports = {
             page: 'home',
             label: 'Getting Started',
             action: function (context, payload, done) {
-                context.executeAction(showPosts, {md: 'botbone-getting-started.md'}, function() {
+                context.executeAction(showPost, {md: 'botbone-getting-started.md'}, function() {
                     context.dispatch('UPDATE_PAGE_TITLE', { pageTitle: 'Getting Started | BotBone' });
                     done();
                 });
@@ -40,7 +40,7 @@ module.exports = {
             method: 'get',
             page: 'page',
             action: function (context, payload, done) {
-                context.executeAction(showPosts, {md: payload.params.id}, function (err) {
+                context.executeAction(showPost, {md: payload.params.id}, function (err) {
                     context.dispatch('UPDATE_PAGE_TITLE', { pageTitle: 'Post | BotBone' });
                     done();
                 });
