@@ -33,4 +33,4 @@ Botnana HMI 為一 Web-based 的 platform，整合各種 Services，示意圖如
 * 提供一個能讓 Fluxible App 重用的 reactjs 模組。此一模組亦可做為客製化的範例。
 * 未來若使用其他的，非 Yahoo Fluxible 的架構，只要設計自己的 plugin，亦可以重用已設計好的 service 模組。
 
-[flux]: /public/assets/img/botnana-hmi-flux.md
+[flux]: /assets/img/botnana-hmi-flux.svg
