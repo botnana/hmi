@@ -13,7 +13,7 @@ module.exports = {
             page: 'home',
             label: 'Getting Started',
             action: function (context, payload, done) {
-                context.executeAction(showPost, {md: 'botbone-getting-started.md'}, function() {
+                context.executeAction(showPost, {id: 'botbone-getting-started'}, function() {
                     context.dispatch('UPDATE_PAGE_TITLE', { pageTitle: 'Getting Started | BotBone' });
                     done();
                 });
@@ -40,7 +40,7 @@ module.exports = {
             method: 'get',
             page: 'page',
             action: function (context, payload, done) {
-                context.executeAction(showPost, {md: payload.params.id}, function (err) {
+                context.executeAction(showPost, {id: payload.params.id}, function (err) {
                     context.dispatch('UPDATE_PAGE_TITLE', { pageTitle: 'Post | BotBone' });
                     done();
                 });
