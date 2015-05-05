@@ -1,5 +1,6 @@
 {
     "data": [{
+        "type": "posts",
         "id": "botbone-getting-started",
         "title": "Botbone 入門",
         "img": "/assets/img/botbone.png",
@@ -8,6 +9,7 @@
         "preview": "BotBone 帶你進自動化及工業 4.0 的世界，你可以透過它學到...",
         "tags": ["tutorials"]
     }, {
+        "type": "posts",
         "id": "botbone-tutorials",
         "title": "BotBone 教學",
         "published": "2015-02-25",
@@ -15,6 +17,7 @@
         "preview": "使用 BotBone 的一些小技巧...",
         "tags": ["tutorials"]
     }, {
+        "type": "posts",
         "id": "botnana-platform-architecture",
         "title": "Botnana 工業物聯網開發平台",
         "published": "2015-02-25",
