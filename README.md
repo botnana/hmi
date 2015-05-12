@@ -12,6 +12,11 @@ The server is listening on port 3000.
 
 # Deploy
 
+首先校時。以免 npm install 時出問題。
+
+    sudo apt-get install ntpdate
+    sudo ntpdate-debian
+
 先安裝 pm2 以及建立一個執行 webserver 的 user botnana。
 
     npm install -g pm2
