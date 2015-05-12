@@ -30,7 +30,7 @@
 
 執行 iwconfig，確定有 wlan0。
 
-    # ifwconfig
+    # iwconfig
 
     wlan0     IEEE 802.11bgn  ESSID:off/any
               Mode:Managed  Access Point: Not-Associated   Tx-Power=0 dBm
