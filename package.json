@@ -30,7 +30,7 @@
     "csurf": "^1.7.0",
     "d3": "^3.5.3",
     "debug": "^2.1.1",
-    "express": "^4.11.1",
+    "express": "4.12.2",
     "flux-router-component": "^0.5.15",
     "fluxible": "^0.2.9",
     "fluxible-plugin-fetchr": "^0.2.3",
